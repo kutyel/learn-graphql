@@ -1,0 +1,37 @@
+
+############################
+# npm
+############################
+node_modules
+npm-debug.log
+package-lock.json
+############################
+# tmp, editor & OS files
+############################
+.tmp
+*.swo
+*.swp
+*.swn
+*.swm
+.DS_Store
+*#
+*~
+.idea
+.vscode
+*sublime*
+nbproject
+
+############################
+# Tests
+############################
+testApp
+coverage
+.nyc_output
+
+############################
+# Other
+############################
+.node_history
+variables.env
+variables.env.now
+variables.env.sample
