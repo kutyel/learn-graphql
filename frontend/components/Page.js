@@ -1,4 +1,4 @@
-import styled, { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider, injectGlobal } from 'styled-components'
 
 import Meta from './Meta'
 import Header from './Header'
@@ -18,10 +18,37 @@ const Page = styled.div`
   color: ${({ theme }) => theme.color};
 `
 
-const Inner = styled.div`
+const Content = styled.div`
   max-width: ${({ theme }) => theme.maxWidth};
   margin: 0 auto;
   padding: 3rem;
+`
+
+injectGlobal`
+  @font-face {
+    font-family: 'radnika';
+    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  html {
+    box-sizing: border-box;
+    font-size: 10px;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+    padding: 0;
+    margin: 0;
+    line-height: 2;
+    font-size: 1.5rem;
+    font-family: 'radnika';
+  }
+  a {
+    text-decoration: none;
+    color: ${theme.black};
+  }
 `
 
 export default ({ children }) => (
@@ -29,7 +56,7 @@ export default ({ children }) => (
     <Page>
       <Meta />
       <Header />
-      <Inner>{children}</Inner>
+      <Content>{children}</Content>
     </Page>
   </ThemeProvider>
 )
