@@ -36,3 +36,5 @@ coverage
 variables.env
 variables.env.now
 variables.env.sample
+.env
+
