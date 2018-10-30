@@ -13,5 +13,5 @@ server.start(
       origin: process.env.FRONTEND_URL,
     },
   },
-  ({ port }) => console.log(`Server is now running on ${port}`)
+  ({ port }) => console.log(`Server is now running on http://localhost:${port}`)
 )
