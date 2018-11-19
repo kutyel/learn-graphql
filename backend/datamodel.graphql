@@ -3,3 +3,13 @@ type User {
   name: String!
   email: String!
 }
+
+type Item {
+  id: ID! @unique
+  title: String!
+  description: String!
+  image: String
+  largeImage: String
+  price: Int!
+  # user: User!
+}
