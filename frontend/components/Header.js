@@ -38,7 +38,6 @@ const Bar = styled.header`
     grid-template-columns: 1fr;
     justify-content: center;
   }
-}
 `
 
 const SubBar = styled.div`
