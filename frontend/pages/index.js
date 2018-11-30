@@ -1,5 +1,7 @@
+import Items from '../components/Items'
+
 export default () => (
   <div>
-    <h1>Let's begin! 🚀</h1>
+    <Items />
   </div>
 )
