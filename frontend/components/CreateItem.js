@@ -46,14 +46,14 @@ export default class extends Component {
               data: {
                 createItem: { id },
               },
-            } = await createItem(this.state)
+            } = await createItem()
             Router.push({
               pathname: '/item',
               query: { id },
             })
           }}
         >
-          {error && <Error error={error} />}
+          <Error error={error} />
           <fieldset disabled={loading} aria-busy={loading}>
             <label htmlFor="title">
               Title
