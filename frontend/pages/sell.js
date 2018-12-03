@@ -1,1 +1,1 @@
-export default () => <h1>Sell page 💸</h1>
+export { default } from '../components/CreateItem'

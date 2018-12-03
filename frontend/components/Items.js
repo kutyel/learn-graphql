@@ -17,7 +17,7 @@ const ItemList = styled.div`
   max-width: ${({ theme }) => theme.maxWidth};
 `
 
-const ALL_ITEMS_QUERY = gql`
+export const ALL_ITEMS_QUERY = gql`
   query ALL_ITEMS_QUERY {
     items {
       id
@@ -33,14 +33,14 @@ const ALL_ITEMS_QUERY = gql`
 export default () => (
   <Center>
     <Query query={ALL_ITEMS_QUERY}>
-      {({ data: { items }, error, loading }) =>
+      {({ data, error, loading }) =>
         loading ? (
           <span>Loading...</span>
         ) : error ? (
           <span>{error.message}</span>
         ) : (
           <ItemList>
-            {items.map(item => (
+            {data.items.map(item => (
               <Item key={item.id} {...item} />
             ))}
           </ItemList>
