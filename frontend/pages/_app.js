@@ -8,9 +8,11 @@ export default withData(
   class extends App {
     static async getInitialProps({ Component, ctx }) {
       return {
-        ...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
-        // this exposes the query to the user
-        query: ctx.query,
+        pageProps: {
+          ...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
+          // this exposes the query to the user
+          query: ctx.query,
+        },
       }
     }
     render() {

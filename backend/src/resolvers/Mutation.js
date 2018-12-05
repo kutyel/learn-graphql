@@ -8,6 +8,15 @@ const Mutations = {
       info
     )
   },
+  updateItem(_, { id, ...args }, { db }, info) {
+    return db.mutation.updateItem(
+      {
+        data: { ...args },
+        where: { id },
+      },
+      info
+    )
+  },
 }
 
 module.exports = Mutations
