@@ -17,6 +17,12 @@ const Mutations = {
       info
     )
   },
+  deleteItem(_, { id }, { db }, info) {
+    const where = { id }
+    // const item = await db.query.item({ where }, `{ id title }`)
+    // TODO: check permissions
+    return db.mutation.deleteItem({ where }, info)
+  },
 }
 
 module.exports = Mutations

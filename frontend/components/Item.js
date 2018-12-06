@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 import fmt from '../lib/formatMoney'
+import DeleteItem from './DeleteItem'
 import { Title, ItemStyles, PriceTag } from './styles'
 
 export default ({ id, title, price, description, image }) => (
@@ -29,7 +30,7 @@ export default ({ id, title, price, description, image }) => (
         <a>Edit ✏️</a>
       </Link>
       <button>Add to Cart</button>
-      <button>Delete</button>
+      <DeleteItem id={id} />
     </div>
   </ItemStyles>
 )
