@@ -1,7 +1,7 @@
 # import * from './generated/prisma.graphql'
 
 type Query {
-  items: [Item]!
+  items(where: ItemWhereInput, orderBy: ItemOrderByInput, skip: Int, first: Int): [Item]!
   item(where: ItemWhereUniqueInput): Item
   itemsConnection(where: ItemWhereInput): ItemConnection!
 }

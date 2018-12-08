@@ -3,6 +3,7 @@ import { Query } from 'react-apollo'
 import styled from 'styled-components'
 
 import Item from './Item'
+import { perPage } from '../config'
 import Pagination from './Pagination'
 import { ALL_ITEMS_QUERY } from '../graphql/queries'
 
@@ -21,7 +22,7 @@ const ItemList = styled.div`
 export default ({ page }) => (
   <Center>
     <Pagination page={page} />
-    <Query query={ALL_ITEMS_QUERY}>
+    <Query query={ALL_ITEMS_QUERY} variables={{ skip: page * perPage - perPage }}>
       {({ data, error, loading }) =>
         loading ? (
           <span>Loading...</span>
