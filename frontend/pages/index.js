@@ -1,7 +1,7 @@
 import Items from '../components/Items'
 
-export default () => (
+export default ({ query: { page = 1 } }) => (
   <div>
-    <Items />
+    <Items page={+page} />
   </div>
 )

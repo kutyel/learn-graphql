@@ -3,6 +3,7 @@ import { Query } from 'react-apollo'
 import styled from 'styled-components'
 
 import Item from './Item'
+import Pagination from './Pagination'
 import { ALL_ITEMS_QUERY } from '../graphql/queries'
 
 const Center = styled.div`
@@ -17,8 +18,9 @@ const ItemList = styled.div`
   max-width: ${({ theme }) => theme.maxWidth};
 `
 
-export default () => (
+export default ({ page }) => (
   <Center>
+    <Pagination page={page} />
     <Query query={ALL_ITEMS_QUERY}>
       {({ data, error, loading }) =>
         loading ? (
@@ -34,5 +36,6 @@ export default () => (
         )
       }
     </Query>
+    <Pagination page={page} />
   </Center>
 )
