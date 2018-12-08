@@ -1,9 +1,9 @@
 import React from 'react'
-import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import styled from 'styled-components'
 
 import Item from './Item'
+import { ALL_ITEMS_QUERY } from '../graphql/queries'
 
 const Center = styled.div`
   text-align: center;
@@ -15,19 +15,6 @@ const ItemList = styled.div`
   margin: 0 auto;
   grid-template-columns: 1fr 1fr;
   max-width: ${({ theme }) => theme.maxWidth};
-`
-
-export const ALL_ITEMS_QUERY = gql`
-  query ALL_ITEMS_QUERY {
-    items {
-      id
-      title
-      price
-      description
-      image
-      largeImage
-    }
-  }
 `
 
 export default () => (

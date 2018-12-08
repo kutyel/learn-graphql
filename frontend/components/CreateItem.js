@@ -1,30 +1,10 @@
-import gql from 'graphql-tag'
 import Router from 'next/router'
 import { Mutation } from 'react-apollo'
 import React, { Component } from 'react'
 
 import { Form } from './styles'
 import Error from './ErrorMessage'
-
-export const CREATE_ITEM_MUTATION = gql`
-  mutation CREATE_ITEM_MUTATION(
-    $title: String!
-    $description: String!
-    $price: Int!
-    $image: String
-    $largeImage: String
-  ) {
-    createItem(
-      title: $title
-      description: $description
-      price: $price
-      image: $image
-      largeImage: $largeImage
-    ) {
-      id
-    }
-  }
-`
+import { CREATE_ITEM_MUTATION } from '../graphql/mutations'
 
 export default class extends Component {
   state = {
