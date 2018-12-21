@@ -1,28 +1,15 @@
+const toWhere = id => ({ where: { id } })
+
 const Mutations = {
-  createItem(_, args, { db }, info) {
+  createItem: (_, data, { db }, info) =>
     // TODO: check if logged in
-    return db.mutation.createItem(
-      {
-        data: { ...args },
-      },
-      info
-    )
-  },
-  updateItem(_, { id, ...args }, { db }, info) {
-    return db.mutation.updateItem(
-      {
-        data: { ...args },
-        where: { id },
-      },
-      info
-    )
-  },
-  deleteItem(_, { id }, { db }, info) {
-    const where = { id }
+    db.mutation.createItem({ data }, info),
+  updateItem: (_, { id, ...data }, { db }, info) =>
+    db.mutation.updateItem({ data, ...toWhere(id) }, info),
+  deleteItem: (_, { id }, { db }, info) =>
     // const item = await db.query.item({ where }, `{ id title }`)
     // TODO: check permissions
-    return db.mutation.deleteItem({ where }, info)
-  },
+    db.mutation.deleteItem(toWhere(id), info),
 }
 
 module.exports = Mutations
